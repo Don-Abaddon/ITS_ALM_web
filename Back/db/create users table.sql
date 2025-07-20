@@ -1,0 +1,15 @@
+CREATE TABLE rol(
+	idrol INTEGER PRIMARY KEY AUTOINCREMENT,
+	rol
+);
+
+CREATE TABLE users (
+    iduser INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    lastname TEXT NOT NULL,
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    rol INTEGER NOT NULL,
+    active BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (rol) REFERENCES rol(idrol)
+);
