@@ -1,13 +1,23 @@
+#schemas/users.py
 from pydantic import BaseModel
 from typing import Optional
 
-
-class UserOut(BaseModel):
-    ID: int
-    Nombre: str
-    Usuario: str
-    Rol: str
-    Activo: bool
+class RolOut(BaseModel):
+    idrol: int
+    rol: str
     
     class Config:
         from_attributes = True
+        
+class UserOut(BaseModel):
+    ID: int
+    Name: str
+    LastName: str
+    Username: str
+    Email: str
+    Rol: RolOut
+    Active: bool
+    
+    class Config:
+        from_attributes = True
+
