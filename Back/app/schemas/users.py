@@ -21,3 +21,14 @@ class UserOut(BaseModel):
     class Config:
         from_attributes = True
 
+class UserIn(BaseModel):
+    Name: str
+    LastName: str
+    Username: str
+    Email: str
+    Password: str
+    RolID: int
+    Active: Optional[bool] = True
+    
+    class Config:
+        from_attributes = True
