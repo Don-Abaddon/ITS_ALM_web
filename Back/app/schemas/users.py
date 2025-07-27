@@ -32,3 +32,9 @@ class UserIn(BaseModel):
     
     class Config:
         from_attributes = True
+
+class PasswordUpdate(BaseModel):
+    Password: str
+    
+    class Config:
+        from_attributes = True
