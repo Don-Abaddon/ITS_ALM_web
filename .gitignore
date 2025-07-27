@@ -1,0 +1,41 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+envl/
+
+# Environment variables
+*.env
+*.env.*
+
+# Logs
+*.log
+
+# User-specific files
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# IDE settings
+.vscode/
+
+# Pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS-specific
+.DS_Store
+Thumbs.db
