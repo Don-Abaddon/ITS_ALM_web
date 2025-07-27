@@ -33,8 +33,14 @@ class UserIn(BaseModel):
     class Config:
         from_attributes = True
 
-class PasswordUpdate(BaseModel):
-    Password: str
+class UserUpdate(BaseModel):
+    Name: Optional[str] = None
+    LastName: Optional[str] = None
+    Username: Optional[str] = None
+    Email: Optional[str] = None
+    Password: Optional[str] = None
+    RolID: Optional[int] = None
+    Active: Optional[bool] = True
     
     class Config:
         from_attributes = True
