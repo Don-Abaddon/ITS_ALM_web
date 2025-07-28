@@ -1,0 +1,36 @@
+
+CREATE TABLE Categorias (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nombre TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE Marcas (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nombre TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE Condiciones (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Estado TEXT NOT NULL UNIQUE  -- Ej: 'Nuevo', 'Usado'
+);
+
+CREATE TABLE Modelos (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    NombreModelo TEXT NOT NULL,
+    CategoriaID INTEGER NOT NULL,
+    MarcaID INTEGER NOT NULL,
+    FOREIGN KEY (CategoriaID) REFERENCES Categorias(ID),
+    FOREIGN KEY (MarcaID) REFERENCES Marcas(ID)
+);
+
+CREATE TABLE Inventario (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    ModeloID INTEGER NOT NULL,
+    CondicionID INTEGER NOT NULL,
+    Tamaño TEXT NOT NULL,           -- Ej: '19"', '22"', '24"'
+    Cantidad INTEGER NOT NULL,
+    Descripcion TEXT,
+    FOREIGN KEY (ModeloID) REFERENCES Modelos(ID),
+    FOREIGN KEY (CondicionID) REFERENCES Condiciones(ID)
+);
+

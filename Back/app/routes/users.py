@@ -114,3 +114,16 @@ def patch_admin_control(user_id: int, patch_data: UserUpdate, db: Session = Depe
         db.refresh(db_user)
 
     return db_user
+
+@router.delete("/admin/users/{user_id}/d", status_code=status.HTTP_204_NO_CONTENT)
+def delete_user(user_id: int, db: Session = Depends(get_db)):
+    """
+    Delete a user by ID.
+    """
+    db_user = db.query(User).filter(User.ID == user_id).first()
+    if not db_user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    db.delete(db_user)
+    db.commit()
+    return
